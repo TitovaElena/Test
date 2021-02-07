@@ -19,14 +19,13 @@ import java.util.stream.Collectors;
 
 public class URLReader {
 	public static Vector<String> word = new Vector<String>();
+	
 	public static int word_count() {
 		int count = 0;
-		
-		
 		Scanner sc = new Scanner(System.in, "Cp866");
-		String[] str;
 		String url = sc.nextLine();
 		sc.close();
+		String[] str;
 		URL address;
 		try {
 			address = new URL(url);
@@ -35,7 +34,7 @@ public class URLReader {
 				in = new BufferedReader(new InputStreamReader(address.openStream(), "UTF-8"));
 				String inputLine;
 				while ((inputLine = in.readLine()) != null) {
-					str = inputLine.split("(?U)\\n+|\\s+|- +|Ч+|\\.+|\\,+");
+					str = inputLine.split("(?U)\\n+|\\s+|- +|Ч +|\\.+|\\,+|Х+|Ц+");
 					List<String> list = new ArrayList<String>(Arrays.asList(str));
 					list.removeAll(Collections.singleton(""));
 					for (int i = 0; i < list.size(); i++) {
@@ -51,7 +50,7 @@ public class URLReader {
 			}
 		} catch (MalformedURLException e1) {
 			// TODO Auto-generated catch block
-			System.out.println("Ќекорректно введен URL-адресс");
+			System.out.println("URL-адресс введен некорректно");
 			System.exit(0);
 		}
 		return count;
