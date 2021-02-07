@@ -34,7 +34,7 @@ public class URLReader {
 				in = new BufferedReader(new InputStreamReader(address.openStream(), "UTF-8"));
 				String inputLine;
 				while ((inputLine = in.readLine()) != null) {
-					str = inputLine.split("(?U)\\n+|\\s+|- +|— +|\\.+|\\,+|•+|–+");
+					str = inputLine.split("(?U)\\n+|\\s+|- +|â€” +|\\.+|\\,+|â€¢+|â€“+");
 					List<String> list = new ArrayList<String>(Arrays.asList(str));
 					list.removeAll(Collections.singleton(""));
 					for (int i = 0; i < list.size(); i++) {
@@ -45,12 +45,12 @@ public class URLReader {
 				in.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
-				System.out.println("Òåêñò íå íàéäåí");
+				System.out.println("Ð¢ÐµÐºÑÑ‚ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½");
 				System.exit(0);
 			}
 		} catch (MalformedURLException e1) {
 			// TODO Auto-generated catch block
-			System.out.println("URL-àäðåññ ââåäåí íåêîððåêòíî");
+			System.out.println("URL-Ð°Ð´Ñ€ÐµÑÑ Ð²Ð²ÐµÐ´ÐµÐ½ Ð½ÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð¾");
 			System.exit(0);
 		}
 		return count;
@@ -80,10 +80,10 @@ public class URLReader {
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("Ââåäèòå URL-àäðåñ: ");
+		System.out.println("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ URL-Ð°Ð´Ñ€ÐµÑ: ");
 		int count = word_count();
-		System.out.println("Êîëè÷åñòâî ñëîâ: " + count);
-		System.out.print("×àñòîòà ñëîâ: ");
+		System.out.println("ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÐ»Ð¾Ð²: " + count);
+		System.out.print("Ð§Ð°ÑÑ‚Ð¾Ñ‚Ð° ÑÐ»Ð¾Ð²: ");
 		frequency(word,count);
 	}
 }
